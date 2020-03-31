@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: postgres
+  pool: 5
+  host: 0.0.0.0
+
+development:
+  <<: *default
+  database: netpri_me_development
+
+test:
+  <<: *default
+  database: netpri_me_test
+
+production:
+  <<: *default
+  database: netpri_me_production
+  username: netpri_me
+  password: <%= ENV['NETPRI_ME_DATABASE_PASSWORD'] %>
