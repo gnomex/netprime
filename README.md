@@ -13,7 +13,7 @@ Um usuário somente poderá realizar o CRUD de seus próprios vídeos;
 Criar uma tela para visualização do acervo de vídeos do usuário;
 Criar uma tela para a visualização do vídeo que poderá ser acessada por qualquer usuário e deverá conter um player, o nome e a quantidade de visualizações do vídeo;
 Contabilizar o view do vídeo quando o player disparar o evento 'start' (incrementar a contagem dos videos view).
-Atenção: Para utilizar o player, utilize alguma biblioteca de player js (ex: VideoJs) lendo o arquivo m3u8 https://content.jwplatform.com/manifests/yp34SRmf.m3u8. O player precisa ter o autoplay configurado.
+Atenção: Para utilizar o player, utilize alguma biblioteca de player js (ex: [VideoJs](http://videojs.github.io/videojs-contrib-hls/)) lendo o arquivo m3u8 https://content.jwplatform.com/manifests/yp34SRmf.m3u8. O player precisa ter o autoplay configurado.
 
 Observação: Não tem nenhuma estrutura definida ou um fluxo, no `netshow.me` .
 Precisamos que nossos Devs sejam criativos com as soluções. Ou seja, você é livre para criar a melhor solução que pensar!

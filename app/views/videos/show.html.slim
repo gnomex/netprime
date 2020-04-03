@@ -1,0 +1,11 @@
+.container-fluid.overflow-auto
+  .row.m-b-20
+    .header.m-b-20
+      .float-left
+        h4.header-title.m-t-0 = @resource.name.titleize
+        h6.text-muted = "#{@resource.view_count} views"
+
+  .clearfix
+
+  .row.align-items-center
+    = render 'video', video_url: @resource.url

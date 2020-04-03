@@ -1,0 +1,11 @@
+pt-BR:
+  defaults:
+    actions:
+      show: Ver
+      create: Criar
+      edit: Editar
+      delete: Excluir
+      cancel: Cancelar
+      submit: Salvar
+      update: Atualizar
+      destroyed: O %{resource_name} foi apagado

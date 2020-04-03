@@ -1,0 +1,32 @@
+.card
+  .card-body
+    .header.m-b-20
+      .float-left
+        h4.header-title.m-t-0 = "Meus vídeos"
+      .float-right
+        = link_to "+ #{Video.model_name.human}", new_account_video_path, class: "btn btn-sm btn-success"
+
+    .clearfix
+    .float-right = paginate @collection
+    .p-20.table-responsive
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th = Video.human_attribute_name(:name)
+            th = Video.human_attribute_name(:view_count)
+            th.text-center = t('defaults.actions.actions')
+        tbody
+          - @collection.each do |video|
+            tr
+              td = video.name
+              td = video.view_count
+              td.text-center
+                a.btn.btn-sm.btn-outline-dark.mx-1 href=watch_me_path(slug: video.slug)
+                  i.fa.fa-eye.fa-fw title="#{t("defaults.actions.show")}"
+
+                a.btn.btn-sm.btn-outline-dark.mx-1 href=edit_account_video_path(current_user, video)
+                  i.fa.fa-edit.fa-fw title="#{t("defaults.actions.edit")}"
+
+                a.btn.btn-sm.btn-outline-dark.mx-1 href=account_video_path(current_user, video) data-confirm="#{t("defaults.actions.delete")}" data-method="delete"
+                  i.fa.fa-trash.fa-fw title="#{t("defaults.actions.delete")}"
+    .float-right = paginate @collection

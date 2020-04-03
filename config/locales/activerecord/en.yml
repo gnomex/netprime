@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    errors:
+      messages:
+    models:
+      user:
+        one: User
+        other: Users
+    attributes:
+      user: User

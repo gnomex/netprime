@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    errors:
+      messages:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+      videos:
+        one: Video
+        other: Videos
+    attributes:
+      user: Usuário
+      video: Vídeo
+      url: URL

@@ -1,0 +1,34 @@
+video-js id="playing_video" class="video-js vjs-big-play-centered" controls="true" preload="auto" width="1280" height="720"
+
+javascript:
+  let send_view_count = () => {
+    console.log("view count sent!");
+  }
+
+  $(() => {
+    // let player = videojs('playing_video', {autoplay: true}); // do not assume it will works...
+    let player = videojs('playing_video');
+
+    player.src({
+      src: "#{video_url}",
+      type: 'application/x-mpegURL'
+    });
+
+    // if (!player.hasStarted()) {
+    //   player.play();
+    // }
+
+    player.ready(function() {
+      let promise = player.play();
+
+      if (promise !== undefined) {
+        promise.then(() => {
+
+          send_view_count();
+
+        }).catch((error) => {
+          // Autoplay was prevented.
+        });
+      }
+    });
+  });

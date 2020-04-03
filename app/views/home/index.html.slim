@@ -1,6 +1,15 @@
-h3.header-title Aeeeeeeeeeeeeeee
+.home-video-wrapper
+  = video_tag "home.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video"
+  .centralized-title
+    h1.home.display-1 Bem vindo ao Net Prime
+
+    - if user_signed_in?
+      a.btn.btn.btn-outline-light.btn-lg href=account_videos_path(current_user.slug) = "Ver meus vídeos!"
+    - else
+      a.btn.btn.btn-outline-light.btn-lg href=new_account_session_path = "Vamos começar?"
+
 
 javascript:
   $(() => {
-    console.log($("h3"));
+    console.log($(".home-video-wrapper"));
   });

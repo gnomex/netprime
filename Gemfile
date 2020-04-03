@@ -9,17 +9,20 @@ gem 'uglifier', '>= 1.3.0'
 gem 'sassc-rails'
 gem 'slim'
 
-gem 'bootstrap_form'
 gem 'devise', '~> 4.7.1'
+gem 'devise-i18n'
 gem 'execjs'
+gem 'kaminari'
 
 gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem "bootstrap_form", "~> 4.0"
+gem 'email_validator', '~> 2.0'
+
 group :development, :test do
   gem 'pry-meta'
   gem 'pry-rails'
-
   gem 'rspec-rails'
 end
 
@@ -31,6 +34,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'brakeman'
   gem 'rubycritic'
+  gem 'bullet', '~> 6.1'
 end
 
 group :test do
