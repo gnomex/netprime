@@ -1,7 +1,11 @@
 require 'simplecov'
+require 'codacy-coverage'
+
+Codacy::Reporter.start
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::HTMLFormatter
+  SimpleCov::Formatter::HTMLFormatter,
+  Codacy::Formatter
 ])
 
 SimpleCov.start :rails do

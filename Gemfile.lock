@@ -64,6 +64,8 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     byebug (11.1.1)
+    codacy-coverage (2.2.1)
+      simplecov
     codeclimate-engine-rb (0.4.1)
       virtus (~> 1.0)
     coderay (1.1.2)
@@ -301,6 +303,7 @@ DEPENDENCIES
   bootstrap_form (~> 4.0)
   brakeman
   bullet (~> 6.1)
+  codacy-coverage
   devise (~> 4.7.1)
   devise-i18n
   email_validator (~> 2.0)
