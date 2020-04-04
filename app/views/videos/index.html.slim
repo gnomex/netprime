@@ -24,9 +24,18 @@
                 a.btn.btn-sm.btn-outline-dark.mx-1 href=watch_me_path(slug: video.slug)
                   i.fa.fa-eye.fa-fw title="#{t("defaults.actions.show")}"
 
+                a.btn.btn-sm.btn-outline-dark.mx-1.copyable data-clipboard-text="#{watch_me_url(slug: video.slug)}" href=""
+                  i.far.fa-copy.fa-fw title="#{t("defaults.actions.copy")}"
+
                 a.btn.btn-sm.btn-outline-dark.mx-1 href=edit_account_video_path(current_user, video)
                   i.fa.fa-edit.fa-fw title="#{t("defaults.actions.edit")}"
 
                 a.btn.btn-sm.btn-outline-dark.mx-1 href=account_video_path(current_user, video) data-confirm="#{t("defaults.actions.delete")}" data-method="delete"
                   i.fa.fa-trash.fa-fw title="#{t("defaults.actions.delete")}"
     .float-right = paginate @collection
+
+javascript:
+  $(() => {
+    let btns = document.querySelectorAll('.copyable')
+    new ClipboardJS(btns);
+  });

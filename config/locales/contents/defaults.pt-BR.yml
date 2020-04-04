@@ -9,3 +9,4 @@ pt-BR:
       submit: Salvar
       update: Atualizar
       destroyed: O %{resource_name} foi apagado
+      copy: Copiar a URL

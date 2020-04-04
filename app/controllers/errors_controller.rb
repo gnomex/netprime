@@ -1,8 +1,6 @@
 class ErrorsController < ApplicationController
   layout false
 
-  protect_from_forgery with: :exception, prepend: true
-
   skip_before_action :authenticate_user!
 
   def not_found

@@ -1,15 +1,26 @@
 class VideosController < ApplicationController
-  protect_from_forgery with: :exception
-
-  before_action :resource, only: [:show, :delete]
+  before_action :resource, except: [:index]
   before_action :new_resource, only: [:new]
 
   def index
-    @collection = Video.by_user(current_user).page(page).per(per_page)
+    @collection = Video.by_user(current_user).
+      default_order.page(page).per(per_page)
   end
 
   def show
+  end
 
+  def edit
+  end
+
+  def update
+    if resource.update(resource_params)
+      flash[:success] = t("messages.video.updated")
+
+      redirect_to account_videos_path
+    else
+      render 'edit'
+    end
   end
 
   def new
@@ -33,6 +44,17 @@ class VideosController < ApplicationController
     redirect_to account_videos_path
   end
 
+  def add_view_count
+    log_event
+
+    resource.up_count
+
+    render json: {
+      message: "event received",
+      count: resource.view_count
+    }, status: 200
+  end
+
   private
 
   def new_resource
@@ -49,5 +71,9 @@ class VideosController < ApplicationController
 
   def video_params
     params[:slug]
+  end
+
+  def log_event
+    Rails.logger.info("Received view count event from account #{params[:slug]}")
   end
 end

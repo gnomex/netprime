@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   get "video/:slug", to: 'videos#show', as: 'watch_me'
+  post "video/:slug", to: "videos#add_view_count", as: 'update_view_count'
 
   root to: 'home#index'
 

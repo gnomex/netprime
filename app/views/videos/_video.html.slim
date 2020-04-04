@@ -1,34 +1,50 @@
-video-js id="playing_video" class="video-js vjs-big-play-centered" controls="true" preload="auto" width="1280" height="720"
+video-js id="current_video" class="video-js vjs-big-play-centered" width="1280" height="720"
+
+- user_info = { account: "#{current_user&.slug || 'anonymous'}" }
 
 javascript:
   let send_view_count = () => {
-    console.log("view count sent!");
+    Rails.ajax({
+      url: "#{up_count_url}",
+      type: "POST",
+      data: "#{user_info}",
+      success: (data) => {
+        let element = $("#video_count"),
+            text = $(element).text().split(' ')[1],
+            new_text = [data.count, text].join(" ");
+
+        $(element).text(new_text);
+      },
+      error: (data) => {}
+    });
   }
 
   $(() => {
-    // let player = videojs('playing_video', {autoplay: true}); // do not assume it will works...
-    let player = videojs('playing_video');
-
-    player.src({
-      src: "#{video_url}",
-      type: 'application/x-mpegURL'
+    let player = videojs('current_video', {
+      controls: true,
+      preload: 'auto'
     });
 
-    // if (!player.hasStarted()) {
-    //   player.play();
-    // }
+    player.ready(() => {
+      player.src({
+        src: "#{video_url}",
+        type: 'application/x-mpegURL'
+      });
 
-    player.ready(function() {
-      let promise = player.play();
+      let was_playing_promise = player.play();
 
-      if (promise !== undefined) {
-        promise.then(() => {
+      if (was_playing_promise !== undefined) {
+        was_playing_promise.then(() => {
 
           send_view_count();
 
-        }).catch((error) => {
-          // Autoplay was prevented.
-        });
+        }).catch((error) => {});
       }
+
+      let replyBtn = $(".vjs-control-bar").find(".vjs-button")[0];
+
+      $(replyBtn).click((event) => {
+        if ($(replyBtn).text() === 'Replay') send_view_count();
+      });
     });
   });

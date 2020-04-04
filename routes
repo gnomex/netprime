@@ -25,6 +25,7 @@
                  accounts GET    /accounts(.:format)                                                                      accounts#index
                   account GET    /accounts/:slug(.:format)                                                                accounts#show
                  watch_me GET    /video/:slug(.:format)                                                                   videos#show
+        update_view_count GET    /video/:slug(.:format)                                                                   videos#add_view_count
                      root GET    /                                                                                        home#index
                 not_found GET    /inexistente(.:format)                                                                   errors#not_found
                                  /*path(.:format)                                                                         errors#not_found

@@ -3,9 +3,9 @@
     .header.m-b-20
       .float-left
         h4.header-title.m-t-0 = @resource.name.titleize
-        h6.text-muted = "#{@resource.view_count} views"
+        h6.text-muted.animated id="video_count" = "#{@resource.view_count} views"
 
   .clearfix
 
   .row.align-items-center
-    = render 'video', video_url: @resource.url
+    = render 'video', video_url: @resource.url, up_count_url: update_view_count_path(@resource)

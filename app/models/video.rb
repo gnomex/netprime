@@ -4,7 +4,12 @@ class Video < ApplicationRecord
   validates :name, :url, presence: true
   validate :valid_url
 
+  scope :default_order, -> { order(view_count: :desc) }
   scope :by_user, ->(user) { where(user: user) }
+
+  def up_count
+    update(view_count: self.view_count += 1)
+  end
 
   private
 
