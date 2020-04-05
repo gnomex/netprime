@@ -1,6 +1,6 @@
 .home-video-wrapper
   = video_tag "home.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video"
-  .centralized-title
+  .centralized-title.h-100
     h1.home.display-1 Bem vindo ao Net Prime
 
     - if user_signed_in?
@@ -8,8 +8,18 @@
     - else
       a.btn.btn.btn-outline-light.btn-lg href=new_user_session_path = "Vamos começar?"
 
+    - if user_signed_in?
+      .sticky-footer
+        .container
+          .d-flex.justify-content-center.text-center
+            a.btn.btn.btn-outline-light.btn-lg.bd-highlight href="#videos"
+              i.fa.fa-angle-double-down.fa-fw title="HEY"
+
+
+- if user_signed_in?
+  = render "videos", collection: @collection
 
 javascript:
   $(() => {
-    console.log($(".home-video-wrapper"));
+    console.log("Welcome!");
   });

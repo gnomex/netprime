@@ -15,8 +15,7 @@ Criar uma tela para a visualização do vídeo que poderá ser acessada por qual
 Contabilizar o view do vídeo quando o player disparar o evento 'start' (incrementar a contagem dos videos view).
 Atenção: Para utilizar o player, utilize alguma biblioteca de player js (ex: [VideoJs](http://videojs.github.io/videojs-contrib-hls/)) lendo o arquivo m3u8 https://content.jwplatform.com/manifests/yp34SRmf.m3u8. O player precisa ter o autoplay configurado.
 
-Observação: Não tem nenhuma estrutura definida ou um fluxo, no `netshow.me` .
-Precisamos que nossos Devs sejam criativos com as soluções. Ou seja, você é livre para criar a melhor solução que pensar!
+Observação: Seja criativo!
 
 ## Importante
 
@@ -32,7 +31,7 @@ Não se preocupe em entregar uma coisa linda (visual/front), mas todo o código 
 
 ### Entrega
 
-O prazo para a entrega do desafio é de 7 dias corridos! No final do desafio, você deverá enviar dois links: um do projeto rodando no Heroku e o outro do projeto no Github ou Gitlab;
+Projeto no github e rodando no heroku
 
 
 # First
@@ -52,9 +51,12 @@ sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
 clone and bundle install
 sudo docker-compose up -d # otherwise reconfigure config/database.yml
 
+rails db:create
 rails db:setup
 rails s
 ```
+
+Example user is `demo@netpri.me`, password `Teste123!@#`
 
 ## to edit secrets
 
@@ -63,11 +65,15 @@ rails s
 # Deploy to HEROKU
 
 ```
-heroku create myexample
+heroku create
 heroku buildpacks:add --index 1 heroku/nodejs
 heroku buildpacks:add heroku/ruby
 
 #git add/commit
 
 git push heroku master
+
+heroku run rails db:migrate
+heroku run rails db:seed
 ```
+

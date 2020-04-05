@@ -18,7 +18,7 @@ html
     .container
       .notifications
         - if alert || notice
-          div class="alert alert-#{alert.present? ? "warning" : "success"} alert-dismissible fade show" role="alert"
+          div class="alert alert-#{alert.present? ? "warning" : "success"} alert-dismissible fade show" role="alert" data-dismiss="alert" aria-label="Close"
             - if notice
               strong = notice
             - if alert

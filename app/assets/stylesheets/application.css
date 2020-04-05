@@ -5,6 +5,10 @@
  *= require_self
  */
 
+html {
+  scroll-behavior: smooth;
+}
+
 .home_video {
   width: 100vw;
   height: 100vh;
@@ -37,28 +41,9 @@ h1.home {
   color: white;
 }
 
-h1.home:hover {
-  transition: color .15s ease-in-out,
-    opacity .15s ease-in-out,
-    background .15s ease-in-out,
-    background-color .15s ease-in-out,
-    border-color .15s ease-in-out;
-}
-
-.animated {
-  opacity: 1;
-  animation-name: fadeInOpacity;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in;
-  animation-duration: 2s;
-  /*animation: bounceIn 2s ease-in-out 3s 3 alternate;*/
-}
-
-@keyframes fadeInOpacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.sticky-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 1em;
 }

@@ -1,0 +1,19 @@
+.bg-light id="videos"
+  .container
+    .jumbotron.jumbotron-fluid.text-center.bg-light
+      h4.display-4= "Confira todos os Vídeos"
+    .d-flex.flex-row.flex-wrap.justify-content-around.bd-highlight.mb-3
+      - collection.each do |video|
+        .col-md-3.m-4.p-2
+          .card.p-2.bd-highlight.h-100.shadow-sm.rounded
+            .card-body
+              h5.card-title = video.name
+              a.btn.btn-sm.btn-outline.btn-block.btn-outline-danger data-turbolinks="false" href=watch_me_path(slug: video.slug) = "assistir agora"
+
+.container
+  .float-left
+    p.text-muded by Kenner Kliemann
+  .float-right
+    a.btn.btn.btn-outline-dark href="#"
+      i.fa.fa-angle-double-up.fa-fw title="back to top"
+
