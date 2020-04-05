@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :accounts, param: :slug, only: [:index, :show] do
+  resources :accounts, param: :slug, only: [:show] do
     resources :videos, param: :slug
   end
 

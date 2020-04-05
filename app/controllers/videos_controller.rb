@@ -74,6 +74,7 @@ class VideosController < ApplicationController
   end
 
   def log_event
-    Rails.logger.info("Received view count event from account #{params[:slug]}")
+    Rails.logger.
+      info("Received view count event from account #{params[:slug]}")
   end
 end

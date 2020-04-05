@@ -1,34 +1,24 @@
-header#topnav
-  .topbar-main
-    .container
-      .menu-extras.navbar-topbar
+- if user_signed_in?
+  header#topnav
+    .topbar-main
+      .container
+        .menu-extras.navbar-topbar
+          ul.list-inline.float-right.mb-0
+            li.list-inline-item.dropdown
+              a.nav-link.dropdown-toggle.waves-effect.waves-light.nav-user data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" = "Menu"
 
-        ul.list-inline.float-right.mb-0
+              .dropdown-menu.dropdown-menu-right.profile-dropdown aria-labelledby="Preview"
+                a.dropdown-item href=root_path
+                  i.fa.fa-home
+                  span = " Home"
+                a.dropdown-item href=account_videos_path(current_user)
+                  i.fa.fa-user-circle
+                  span = " Meu acervo"
 
-          li.list-inline-item
-            <!-- Mobile menu toggle-->
-            a.navbar-toggle
-              .lines
-                span
-                span
-                span
-            <!-- End mobile menu toggle-->
+                a.dropdown-item href=account_path(current_user)
+                  i.fa.fa-lock
+                  span = " Minha conta"
 
-          li.list-inline-item.dropdown.notification-list
-            a.nav-link.dropdown-toggle.waves-effect.waves-light.nav-user data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" = "Menu"
-
-            .dropdown-menu.dropdown-menu-right.profile-dropdown aria-labelledby="Preview"
-              <!-- item-->
-              a#edit-profile.dropdown-item.notify-item data-event="Perfil" href=account_videos_path(current_user)
-                i.fa.fa-user-circle.m-r-10
-                span = "Meu acervo"
-
-              <!-- item-->
-              a.dropdown-item.notify-item href=edit_user_password_path
-                i.fa.fa-lock.m-r-10
-                span = t("defaults.password")
-
-              <!-- item-->
-              = link_to destroy_user_session_path, method: "delete", class:"dropdown-item notify-item"
-                i.fa.fa-power-off.m-r-10
-                span Logout
+                = link_to destroy_user_session_path, method: "delete", class:"dropdown-item"
+                  i.fa.fa-power-off
+                  span = " Logout"

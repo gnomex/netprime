@@ -3,7 +3,7 @@ video-js id="current_video" class="video-js vjs-big-play-centered" width="1280" 
 - user_info = { account: "#{current_user&.slug || 'anonymous'}" }
 
 javascript:
-  let send_view_count = () => {
+  let send_view_count = (user_info) => {
     Rails.ajax({
       url: "#{up_count_url}",
       type: "POST",
@@ -16,6 +16,22 @@ javascript:
         $(element).text(new_text);
       },
       error: (data) => {}
+    });
+  };
+
+  let handle_blocked_autoplay = () => {
+    let element = $(".vjs-big-play-button");
+
+    $(element).click((event) => {
+      if ($(element).text() === 'Play Video') send_view_count();
+    })
+  };
+
+  let handle_video_replay = () => {
+    let element = $(".vjs-control-bar").find(".vjs-button")[0];
+
+    $(element).click((event) => {
+      if ($(element).text() === 'Replay') send_view_count();
     });
   }
 
@@ -38,13 +54,13 @@ javascript:
 
           send_view_count();
 
-        }).catch((error) => {});
+        }).catch((error) => {
+
+          handle_blocked_autoplay();
+
+        });
       }
 
-      let replyBtn = $(".vjs-control-bar").find(".vjs-button")[0];
-
-      $(replyBtn).click((event) => {
-        if ($(replyBtn).text() === 'Replay') send_view_count();
-      });
+      handle_video_replay();
     });
   });

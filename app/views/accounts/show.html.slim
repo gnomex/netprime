@@ -1,0 +1,58 @@
+.card
+  .card-body
+    .row
+      .col-12.float-left
+        .header.mb-5
+          .float-left
+            h3.header-title.m-t-0 = "Olá #{presenter.headline}"
+
+    .row
+      .col-12.float-left
+        p.card-text.mb-1
+          strong= "#{User.human_attribute_name(:email)}: "
+          = presenter.user_email
+      .col-12.float-left
+        p.card-text.mb-1
+          strong= "#{User.human_attribute_name(:registered_at)}: "
+          = presenter.registration_date
+
+    .row.mt-4
+      .col-sm-12
+        .card
+          .card-header
+            h4.header-title.m-t-0 = "Ações"
+
+          .card-body
+            .row.mb-2
+              .col-12
+                a.btn.btn-outline-dark href=edit_user_registration_path(current_user) = "Mudar a minha senha"
+            .row.mb-2
+              .col-12
+                = button_to "Excluir a minha conta", registration_path(current_user), class: "btn btn-outline-dark", data: { confirm: "Você tem certeza? essa ação irá excluir sua conta e todos os seus dados. P.S.: em conformidade com a LGPD" }, method: :delete
+
+    .row.mt-4
+      .col-sm-12
+        .card
+          .card-header
+            h4.header-title.m-t-0 = "Sobre Seus Vídeos"
+
+          .card-body
+            .row.mb-2
+              .col-12
+                - video = presenter.most_popular_video
+                - if video.present?
+                  p.card-text.mb-2
+                    strong= "O seu vídeo mais popular: "
+                    = presenter.most_popular_video&.name
+            .row.mb-2
+              .col-12
+                strong= "Total de vídeos no acervo: "
+                = presenter.total_of_videos
+            .row.mb-2
+              .col-12
+                strong= "Somatória de views de todos seus vídeos: "
+                = presenter.sum_of_view_count
+
+    .row.float-right.mt-5
+      .col-12
+        a.btn.btn-lg.btn-outline-success href=account_videos_path(current_user) = "Ir para meus Vídeos!"

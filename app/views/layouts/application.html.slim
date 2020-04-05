@@ -13,16 +13,21 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
     link href="https://m.media-amazon.com/images/G/01/digital/video/DVUI/favicons/favicon._CB527404570_.png" rel="shortcut icon" type="image/x-icon"
+
   body
-
-    .container-fluid
+    .container
       .notifications
-        - if notice
-          .alert.alert-success.notice = notice
-        - if alert
-          .alert.alert-danger = alert
-      .menu
-        = render 'shared/menu'
+        - if alert || notice
+          div class="alert alert-#{alert.present? ? "warning" : "success"} alert-dismissible fade show" role="alert"
+            - if notice
+              strong = notice
+            - if alert
+              strong = alert
+            button.close aria-label="Close" data-dismiss="alert" type="button"
+              span aria-hidden="true"  &times;
 
-      .container
-        = yield
+    .menu
+      = render 'shared/menu'
+
+    .container.h-100
+      = yield

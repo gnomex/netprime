@@ -1,26 +1,51 @@
-<h2>Log in</h2>
+<div class="container h-100">
+  <div class="row justify-content-center align-items-center h-100">
+    <div class="col-6 mx-auto">
+      <div class="card">
+        <%= form_for(resource, as: resource_name, html: { class: "form-signin" }, url: session_path(resource_name)) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+          <div class="text-center mb-4">
+            <h2 class="h3 mb-3 font-weight-normal">Log in</h2>
+          </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+          <div class="form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+          <div class="form-group">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="form-group">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= f.submit "Log in", class: "btn btn-lg btn-outline btn-block btn-outline-dark" %>
+          </div>
+          <div class="form-group">
+            <%= render "devise/shared/links" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<style>
+  body, html {
+    height: 100%;
+    margin:0;
+    background-image: url("https://marketingmestre.com/wp-content/uploads/2019/10/f%C3%B3rmula-de-lan%C3%A7amento-%C3%A9rico-rocha.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
+

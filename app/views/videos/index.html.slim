@@ -1,13 +1,14 @@
 .card
   .card-body
-    .header.m-b-20
+    .header.mb-5
       .float-left
         h4.header-title.m-t-0 = "Meus vídeos"
       .float-right
-        = link_to "+ #{Video.model_name.human}", new_account_video_path, class: "btn btn-sm btn-success"
+        = link_to "+ #{Video.model_name.human}", new_account_video_path, class: "btn btn-success"
 
     .clearfix
     .float-right = paginate @collection
+
     .p-20.table-responsive
       table.table.table-striped.table-hover
         thead
@@ -21,7 +22,7 @@
               td = video.name
               td = video.view_count
               td.text-center
-                a.btn.btn-sm.btn-outline-dark.mx-1 href=watch_me_path(slug: video.slug)
+                a.btn.btn-sm.btn-outline-dark.mx-1 data-turbolinks="false" href=watch_me_path(slug: video.slug)
                   i.fa.fa-eye.fa-fw title="#{t("defaults.actions.show")}"
 
                 a.btn.btn-sm.btn-outline-dark.mx-1.copyable data-clipboard-text="#{watch_me_url(slug: video.slug)}" href=""
@@ -32,7 +33,9 @@
 
                 a.btn.btn-sm.btn-outline-dark.mx-1 href=account_video_path(current_user, video) data-confirm="#{t("defaults.actions.delete")}" data-method="delete"
                   i.fa.fa-trash.fa-fw title="#{t("defaults.actions.delete")}"
+    .clearfix
     .float-right = paginate @collection
+
 
 javascript:
   $(() => {
