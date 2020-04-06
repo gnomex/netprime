@@ -38,7 +38,6 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_owner
-    # binding.pry
     return if account_params == current_user.slug
 
     redirect_to account_path(current_user), alert: "Ops, não é possível acessar"
