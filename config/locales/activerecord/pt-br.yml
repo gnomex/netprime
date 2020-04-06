@@ -2,6 +2,11 @@ pt-BR:
   activerecord:
     errors:
       messages:
+      models:
+        video:
+          attributes:
+            url:
+              invalid: Deve ser uma URL válida com a extensão '.m3u8'
     models:
       user:
         one: Usuário
@@ -10,6 +15,18 @@ pt-BR:
         one: Video
         other: Videos
     attributes:
-      user: Usuário
-      video: Vídeo
-      url: URL
+      user:
+        email: Email
+        videos: Vídeos
+        name: Nome
+        slug: Conta
+        password: Senha
+        password_confirmation: Confirmação da Senha
+        created_at: Registrado em
+      video:
+        url: Link do Vídeo
+        name: Nome
+        view_count: Quantidade de Visualizações
+        slug: Identificação
+        user_id: Conta associada
+        created_at: Registrado em

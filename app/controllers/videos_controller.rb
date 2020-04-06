@@ -17,7 +17,7 @@ class VideosController < ApplicationController
 
   def update
     if resource.update(resource_params)
-      flash[:success] = t("messages.video.updated")
+      flash[:success] = t("defaults.actions.updated")
 
       redirect_to account_videos_path
     else
@@ -32,7 +32,7 @@ class VideosController < ApplicationController
     @resource = current_user.videos.build(resource_params)
 
     if @resource.save
-      redirect_to account_videos_path, notice: 'Post was successfully created.'
+      redirect_to account_videos_path, notice: t("defaults.actions.created")
     else
       render :new
     end
@@ -52,7 +52,7 @@ class VideosController < ApplicationController
     resource.up_count
 
     render json: {
-      message: "event received",
+      message: t('defaults.actions.event_received'),
       count: resource.view_count
     }, status: 200
   end
@@ -73,7 +73,7 @@ class VideosController < ApplicationController
 
   def log_event
     Rails.logger.
-      info("Received view count event from account #{params[:slug]}")
+      info("Received 'view_count' event from account #{params[:slug]}")
   end
 
   def account_params

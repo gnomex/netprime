@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  match '*path' => 'errors#not_found', via: :all
+  match '/404' => 'errors#not_found', via: :all
   match '/500' => 'errors#server_error', via: :all
 end

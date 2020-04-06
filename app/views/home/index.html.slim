@@ -1,25 +1,19 @@
 .home-video-wrapper
   = video_tag "home.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video"
   .centralized-title.h-100
-    h1.home.display-1 Bem vindo ao Net Prime
+    h1.home.display-1 = t('title')
 
     - if user_signed_in?
-      a.btn.btn.btn-outline-light.btn-lg href=account_videos_path(current_user.slug) = "Ver meus vídeos!"
+      a.btn.btn.btn-outline-light.btn-lg href=account_videos_path(current_user.slug) = t('views.all_videos')
     - else
-      a.btn.btn.btn-outline-light.btn-lg href=new_user_session_path = "Vamos começar?"
+      a.btn.btn.btn-outline-light.btn-lg href=new_user_session_path = t('views.getting_started')
 
     - if user_signed_in?
       .sticky-footer
         .container
           .d-flex.justify-content-center.text-center
             a.btn.btn.btn-outline-light.btn-lg.bd-highlight href="#videos"
-              i.fa.fa-angle-double-down.fa-fw title="HEY"
-
+              i.fa.fa-angle-double-down.fa-fw title=t('views.cta_all_videos')
 
 - if user_signed_in?
   = render "videos", collection: @collection
-
-javascript:
-  $(() => {
-    console.log("Welcome!");
-  });

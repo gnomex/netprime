@@ -1,4 +1,11 @@
 en:
+  title: Welcome to Net Prime
+  messages:
+    unavailable: "Ops, unavailable"
+    not_found: "What you're looking for was unavailable"
+    server_error: "Something wrong was not right, try again later, please"
+    video_unavailable: "Ops, the video is unavailable"
   errors:
     messages:
       invalid: Invalid
+

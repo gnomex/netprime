@@ -4,7 +4,7 @@
       .col-12.float-left
         .header.mb-5
           .float-left
-            h3.header-title.m-t-0 = "Olá #{presenter.headline}"
+            h3.header-title.m-t-0 = t('views.account.welcome', resource_name: presenter.headline)
 
     .row
       .col-12.float-left
@@ -13,28 +13,28 @@
           = presenter.user_email
       .col-12.float-left
         p.card-text.mb-1
-          strong= "#{User.human_attribute_name(:registered_at)}: "
+          strong= "#{User.human_attribute_name(:created_at)}: "
           = presenter.registration_date
 
     .row.mt-4
       .col-sm-12
         .card
           .card-header
-            h4.header-title.m-t-0 = "Ações"
+            h4.header-title.m-t-0 = t('views.actions')
 
           .card-body
             .row.mb-2
               .col-12
-                a.btn.btn-outline-dark href=edit_user_registration_path(current_user) = "Mudar a minha senha"
+                a.btn.btn-outline-dark href=edit_user_registration_path(current_user) = t('defaults.actions.change_password')
             .row.mb-2
               .col-12
-                = button_to "Excluir a minha conta", registration_path(current_user), class: "btn btn-outline-dark", data: { confirm: "Você tem certeza? essa ação irá excluir sua conta e todos os seus dados. P.S.: em conformidade com a LGPD" }, method: :delete
+                = button_to t('defaults.actions.delete_account'), registration_path(current_user), class: "btn btn-outline-dark", data: { confirm: t('defaults.actions.delete_account_alert')}, method: :delete
 
     .row.mt-4
       .col-sm-12
         .card
           .card-header
-            h4.header-title.m-t-0 = "Sobre Seus Vídeos"
+            h4.header-title.m-t-0 = t('views.account.stats')
 
           .card-body
             .row.mb-2
@@ -42,17 +42,17 @@
                 - video = presenter.most_popular_video
                 - if video.present?
                   p.card-text.mb-2
-                    strong= "O seu vídeo mais popular: "
+                    strong= "#{t('views.videos.most_popular')}: "
                     = presenter.most_popular_video&.name
             .row.mb-2
               .col-12
-                strong= "Total de vídeos no acervo: "
+                strong= "#{t('views.videos.videos_total')}: "
                 = presenter.total_of_videos
             .row.mb-2
               .col-12
-                strong= "Somatória de views de todos seus vídeos: "
+                strong= "#{t('views.videos.sum_views_count')}: "
                 = presenter.sum_of_view_count
 
     .row.float-right.mt-5
       .col-12
-        a.btn.btn-lg.btn-outline-success href=account_videos_path(current_user) = "Ir para meus Vídeos!"
+        a.btn.btn-lg.btn-outline-success href=account_videos_path(current_user) = t('views.go_to_videos')

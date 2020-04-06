@@ -2,7 +2,7 @@
   .card-body
     .header.mb-5
       .float-left
-        h4.header-title.m-t-0 = "Meus vídeos"
+        h4.header-title.m-t-0 = t('views.account.title')
       .float-right
         = link_to "+ #{Video.model_name.human}", new_account_video_path, class: "btn btn-success"
 
@@ -15,7 +15,7 @@
           tr
             th = Video.human_attribute_name(:name)
             th = Video.human_attribute_name(:view_count)
-            th.text-center = t('defaults.actions.actions')
+            th.text-center = t('views.actions')
         tbody
           - @collection.each do |video|
             tr

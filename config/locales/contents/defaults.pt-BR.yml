@@ -10,3 +10,30 @@ pt-BR:
       update: Atualizar
       destroyed: O %{resource_name} foi apagado
       copy: Copiar a URL
+      event_received: evento recebido
+      change_password: Mudar a minha senha
+      delete_account: Excluir a minha conta
+      delete_account_alert: 'Você tem certeza? essa ação irá excluir sua conta e todos os seus dados. P.S.: em conformidade com a LGPD'
+      watch_now: assistir agora
+      back_to_top: subir
+  views:
+    actions: Ações
+    stats: Sobre Seus Vídeos
+    go_to_videos: Ir para meus Vídeos!
+    all_videos: Ver meus vídeos!
+    getting_started: Vamos começar?
+    cta_all_videos: Veja todos os videos disponíveis
+    all_videos_available: Confira todos os Vídeos
+    videos:
+      title: Meus Vídeos
+      most_popular: O seu vídeo mais popular
+      videos_total: Total de vídeos no acervo
+      sum_views_count: Somatória de views de todos seus vídeos
+    account:
+      welcome: Olá %{resource_name}
+  menu:
+    index: Home
+    videos: Meu Acervo
+    account: Minha Conta
+    logout: Sair
+

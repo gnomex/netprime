@@ -1,2 +1,39 @@
 en:
   defaults:
+    actions:
+      show: Show
+      create: Create
+      edit: Edit
+      delete: Delete
+      cancel: Cancel
+      submit: Save
+      update: Update
+      destroyed: The %{resource_name} was deleted
+      copy: Copy the URL
+      event_received: Event Received
+      change_password: Change my password
+      delete_account: Delete my account
+      delete_account_alert: 'Are you sure? Its gonna delete all your data. P.S.: in compliance with gdpr'
+      watch_now: watch now
+      back_to_top: back to top
+  views:
+    actions: Actions
+    stats: About my Vídeos
+    go_to_videos: All Videos
+    all_videos: Show my Videos!
+    getting_started: "Let's Getting started?"
+    cta_all_videos: See all available videos
+    all_videos_available: Check out all videos
+    videos:
+      title: My Videos
+      most_popular: Your most popular video
+      videos_total: Total videos in the collection
+      sum_views_count: Sum of all your videos views
+    account:
+      welcome: Hi %{resource_name}
+  menu:
+    index: Home
+    videos: My Collection
+    account: My Account
+    logout: Logout
+

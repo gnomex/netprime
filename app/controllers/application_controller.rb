@@ -33,14 +33,14 @@ class ApplicationController < ActionController::Base
   def go_back
     redirect_back(
       fallback_location: root_path,
-      alert: "Ops, o vídeo não está mais disponível"
+      alert: t("messages.video_unavailable")
     )
   end
 
   def ensure_owner
     return if account_params == current_user.slug
 
-    redirect_to account_path(current_user), alert: "Ops, não é possível acessar"
+    redirect_to account_path(current_user), alert: t("messages.unavailable")
   end
 
   def account_params

@@ -2,9 +2,31 @@ en:
   activerecord:
     errors:
       messages:
+      models:
+        video:
+          attributes:
+            url:
+              invalid: Must be a valid URL with '.m3u8' extension
     models:
       user:
         one: User
         other: Users
+      videos:
+        one: Video
+        other: Videos
     attributes:
-      user: User
+      user:
+        email: Email
+        videos: Videos
+        name: Name
+        slug: Account
+        password: Password
+        password_confirmation: Password Confirmation
+        created_at: Registered at
+      video:
+        url: Link
+        name: Name
+        view_count: View count
+        slug: Video Identification
+        user_id: Related Account
+        created_at: Registered at

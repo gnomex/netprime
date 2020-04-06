@@ -1,4 +1,10 @@
 pt-BR:
+  title: Bem vindo ao Net Prime
+  messages:
+    unavailable: "Ops, não é possível acessar"
+    not_found: "O que você estava buscando não foi encontrado."
+    server_error: "Parece que algo errado não está certo, tente novamente depois."
+    video_unavailable: "Ops, o vídeo não está mais disponível"
   activerecord:
     errors:
       messages:

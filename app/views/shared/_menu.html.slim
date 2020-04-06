@@ -10,15 +10,15 @@
               .dropdown-menu.dropdown-menu-right.profile-dropdown aria-labelledby="Preview"
                 a.dropdown-item href=root_path
                   i.fa.fa-home
-                  span = " Home"
+                  span = " #{t('menu.index')}"
                 a.dropdown-item href=account_videos_path(current_user)
                   i.fa.fa-user-circle
-                  span = " Meu acervo"
+                  span = " #{t('menu.videos')}"
 
                 a.dropdown-item href=account_path(current_user)
                   i.fa.fa-lock
-                  span = " Minha conta"
+                  span = " #{t('menu.account')}"
 
                 = link_to destroy_user_session_path, method: "delete", class:"dropdown-item"
                   i.fa.fa-power-off
-                  span = " Logout"
+                  span = " #{t('menu.logout')}"
