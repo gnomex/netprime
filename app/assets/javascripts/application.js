@@ -5,7 +5,3 @@
 //= require clipboard/dist/clipboard.min
 //= require turbolinks
 //= require_tree .
-
-$(() => {
-  // $('.toast').toast({})
-});

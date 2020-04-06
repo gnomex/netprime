@@ -25,14 +25,9 @@ Observação: Seja criativo!
 * Utilizar bootstrap ou outro framework semelhante;
 * O projeto deverá ser feito no Github ou Gitlab.
 
-### Diferencial
-
-Não se preocupe em entregar uma coisa linda (visual/front), mas todo o código seja front ou back tem que ser limpo, bem escrito e otimizado.
-
 ### Entrega
 
 Projeto no github e rodando no heroku
-
 
 # First
 
