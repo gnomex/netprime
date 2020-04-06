@@ -11,6 +11,6 @@ class HomeController < ApplicationController
   private
 
   def collection
-    Video.all
+    Video.default_order.all
   end
 end
