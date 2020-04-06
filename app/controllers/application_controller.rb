@@ -29,4 +29,22 @@ class ApplicationController < ActionController::Base
   def default_format_html
     request.format = "html"
   end
+
+  def go_back
+    redirect_back(
+      fallback_location: root_path,
+      alert: "Ops, o vídeo não está mais disponível"
+    )
+  end
+
+  def ensure_owner
+    # binding.pry
+    return if account_params == current_user.slug
+
+    redirect_to account_path(current_user), alert: "Ops, não é possível acessar"
+  end
+
+  def account_params
+    params[:slug]
+  end
 end

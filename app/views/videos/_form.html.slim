@@ -1,9 +1,12 @@
-= bootstrap_form_for resource, as: :video, url: url, method: method do |f|
-  .row
-    .col-md-8.offset-md-2
-      = f.text_field :name
-      = f.text_field :url
-  .row
-    .col-12.text-right.m-t-20
-      a.btn.btn-danger.m-r-5 href="#{account_videos_path(current_user)}" = t("defaults.actions.back")
-      button.btn.btn-success.submit type="submit" role="button" = t("defaults.actions.submit")
+.container
+  .card.shadow-sm
+    .card-body
+      = bootstrap_form_for resource, as: :video, url: url, method: method do |f|
+        .row
+          .col-md-8.offset-md-2
+            = f.text_field :name
+            = f.text_field :url
+        .row
+          .col-12.text-right.m-t-20
+            a.btn.btn-outline-dark.m-1 href="#{account_videos_path(current_user)}" = t("defaults.actions.back")
+            button.btn.btn-outline-success.submit type="submit" role="button" = t("defaults.actions.submit")

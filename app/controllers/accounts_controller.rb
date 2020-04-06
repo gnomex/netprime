@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+  before_action :ensure_owner, only: [:show]
   before_action :resource, only: [:show]
   before_action :presenter, only: [:show]
 

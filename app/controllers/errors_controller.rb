@@ -4,14 +4,10 @@ class ErrorsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def not_found
-    render status: 404
-  end
-
-  def bad_request
-    render status: 400
+    redirect_to root_path, notice: "O que você estava buscando não foi encontrado."
   end
 
   def server_error
-    render status: 500
+    redirect_to root_path, notice: "Parece que algo errado não está certo, tente novamente depois."
   end
 end

@@ -1,1 +1,1 @@
-= render 'form', resource: @resource, url: polymorphic_path([:account, @resource]), method: :put
+= render 'form', resource: @resource, url: account_video_path(current_user, @resource), method: :put

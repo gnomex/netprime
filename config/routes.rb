@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  get '/inexistente', to: 'errors#not_found', as: :not_found
   match '*path' => 'errors#not_found', via: :all
   match '/500' => 'errors#server_error', via: :all
 end

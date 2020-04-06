@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  before_action :ensure_owner, only: [:index]
   before_action :resource, except: [:index]
   before_action :new_resource, only: [:new]
 
@@ -8,6 +9,7 @@ class VideosController < ApplicationController
   end
 
   def show
+    go_back if resource.nil?
   end
 
   def edit
@@ -69,12 +71,16 @@ class VideosController < ApplicationController
     params.require(:video).permit(:name, :url)
   end
 
-  def video_params
-    params[:slug]
-  end
-
   def log_event
     Rails.logger.
       info("Received view count event from account #{params[:slug]}")
+  end
+
+  def account_params
+    params[:account_slug]
+  end
+
+  def video_params
+    params[:slug]
   end
 end
